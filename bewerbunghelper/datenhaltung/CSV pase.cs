@@ -9,7 +9,7 @@ namespace bewerbunghelper
 {
        public class CSV_pase : Idatenhaltung
     {
-        public List<Bewerbung> lesen(string pfad)
+        public List<Bewerbung> Einlesen(string pfad)
         {
             List<Bewerbung> list = new List<Bewerbung>();
             if (File.Exists(pfad))
@@ -34,7 +34,7 @@ namespace bewerbunghelper
                         my.Anprechpartner = arr1[8];
                         my.Status = arr1[9];
                         my.Vorstellunggesprach = arr1[10];
-                        my.referenznummer = arr1[11];
+                        my.Referenznummer = arr1[11];
 
                         list.Add(my);
 
@@ -44,7 +44,7 @@ namespace bewerbunghelper
             }
             return list;
         }
-        public bool speichen(Bewerbung mybewerbung,string pfad)
+        public bool Speichen(Bewerbung mybewerbung,string pfad)
         {
 
             try
@@ -55,11 +55,11 @@ namespace bewerbunghelper
                     
                     if (prufen)
                     {
-                        sw.WriteLine($"{mybewerbung.Firma};{mybewerbung.Adresss};{mybewerbung.Hausnummer};{mybewerbung.PLZ};{mybewerbung.Ort};{mybewerbung.Bezeichnung};{mybewerbung.Email};{mybewerbung.Telefon};{mybewerbung.Anprechpartner};{mybewerbung.Status};{mybewerbung.Vorstellunggesprach};{mybewerbung.referenznummer}");
+                        sw.WriteLine($"{mybewerbung.Firma};{mybewerbung.Adresss};{mybewerbung.Hausnummer};{mybewerbung.PLZ};{mybewerbung.Ort};{mybewerbung.Bezeichnung};{mybewerbung.Email};{mybewerbung.Telefon};{mybewerbung.Anprechpartner};{mybewerbung.Status};{mybewerbung.Vorstellunggesprach};{mybewerbung.Referenznummer}");
                     } else
                     { sw.WriteLine("Firma;Adresse;Hausnummer;PLZ;ORT;Bezeichnung;Email;Telefon;Anpprechpartner;;vorstellungsgechpräch;Referenznummer");
 
-                        sw.WriteLine($"{mybewerbung.Firma};{mybewerbung.Adresss};{mybewerbung.Hausnummer};{mybewerbung.PLZ};{mybewerbung.Ort};{mybewerbung.Bezeichnung};{mybewerbung.Email};{mybewerbung.Telefon};{mybewerbung.Anprechpartner};{mybewerbung.Status};{mybewerbung.Vorstellunggesprach};{mybewerbung.referenznummer}");
+                        sw.WriteLine($"{mybewerbung.Firma};{mybewerbung.Adresss};{mybewerbung.Hausnummer};{mybewerbung.PLZ};{mybewerbung.Ort};{mybewerbung.Bezeichnung};{mybewerbung.Email};{mybewerbung.Telefon};{mybewerbung.Anprechpartner};{mybewerbung.Status};{mybewerbung.Vorstellunggesprach};{mybewerbung.Referenznummer}");
                     } 
                   
                 }
@@ -73,14 +73,14 @@ namespace bewerbunghelper
             }
         }
 
-        public bool update(List<Bewerbung> list, string p)
+        public bool Updatedatensatz(List<Bewerbung> list, string p)
         {
             using (StreamWriter sw = new StreamWriter(p))
             {
                 sw.WriteLine("Firma;Adresse;Hausnummer;PLZ;ORT;Bezeichnung;Email;Telefon;Anpprechpartner;;vorstellungsgechpräch;Referenznummer");
                 foreach(Bewerbung mybewerbung in list)
                 {
-                    sw.WriteLine($"{mybewerbung.Firma};{mybewerbung.Adresss};{mybewerbung.Hausnummer};{mybewerbung.PLZ};{mybewerbung.Ort};{mybewerbung.Bezeichnung};{mybewerbung.Email};{mybewerbung.Telefon};{mybewerbung.Anprechpartner};{mybewerbung.Status};{mybewerbung.Vorstellunggesprach};{mybewerbung.referenznummer}");
+                    sw.WriteLine($"{mybewerbung.Firma};{mybewerbung.Adresss};{mybewerbung.Hausnummer};{mybewerbung.PLZ};{mybewerbung.Ort};{mybewerbung.Bezeichnung};{mybewerbung.Email};{mybewerbung.Telefon};{mybewerbung.Anprechpartner};{mybewerbung.Status};{mybewerbung.Vorstellunggesprach};{mybewerbung.Referenznummer}");
                 }
             }
             return true;

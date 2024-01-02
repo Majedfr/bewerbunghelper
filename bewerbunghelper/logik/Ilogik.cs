@@ -10,9 +10,9 @@ namespace bewerbunghelper
     {
         bool hinzufugen(Boolean ergebnis, Bewerbung newbewerbung);
         bool ExsistentPrufen(Bewerbung mynew);
-        List<Bewerbung> bewerbungAnzeigen(string status);
-        bool aktualieseierendaten(List<Bewerbung> list);
-        bool emailsenden(string empfanger, string ansprechpartner, string pfadanhang);
+        List<Bewerbung> AnzeigenBewerbungen(string status);
+        bool AktualiesernDaten(List<Bewerbung> list);
+        bool SendenEmail(string empfanger, string ansprechpartner, string pfadanhang);
       //  List<Bewerbung> Zeigen(string pfad);
     }
 }

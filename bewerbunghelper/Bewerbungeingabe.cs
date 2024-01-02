@@ -30,7 +30,7 @@ namespace bewerbunghelper
             temp.Anprechpartner = tb_anchprechpar.Text;
             temp.Telefon = tb_telefon.Text;
             temp.PLZ = tb_plz.Text;
-            temp.referenznummer = tb_referenz.Text;
+            temp.Referenznummer = tb_referenz.Text;
             temp.Ort = tb_ort.Text;
             if (temp.Firma == "")
             {

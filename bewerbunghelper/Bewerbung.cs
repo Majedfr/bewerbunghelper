@@ -8,19 +8,20 @@ namespace bewerbunghelper
 {
     public class Bewerbung
     {
-        
-        public string Firma { get; set; }
-        public string Adresss { get; set; }
-        public string Hausnummer { get; set; }
-        public string PLZ { get; set; }
-        public string Ort { get; set; }
-        public string Bezeichnung { get; set; }
-        public string Anprechpartner { get; set; }
-        public string Email { get; set; }
-        public  string Status {get; set; }
-        public string Vorstellunggesprach { get; set; }
-        public string Telefon { get; set; }
-        public string referenznummer { get; set; }
+
+        public string Firma { get; set; } = default!;
+        public string Adresss { get; set; } = default!;
+
+        public string Hausnummer { get; set; } = default!;
+        public string PLZ { get; set; } = default!;
+        public string Ort { get; set; } = default!;
+        public string Bezeichnung { get; set; } = default!;
+        public string Anprechpartner { get; set; } = default!;
+        public string Email { get; set; } = default!;
+        public string Status { get; set; } = default!;
+        public string Vorstellunggesprach { get; set; } = default!;
+        public string Telefon { get; set; } = default!;
+        public string Referenznummer { get; set; } = default!;
        
     }
 }

@@ -8,9 +8,9 @@ namespace bewerbunghelper
 {
     public interface Idatenhaltung
     {
-        bool speichen(Bewerbung mybewerbung,string pfad);
-        List<Bewerbung> lesen(string pfad);
-        bool update(List<Bewerbung> list,string pfad);
+        bool Speichen(Bewerbung mybewerbung, string pfad);
+        List<Bewerbung> Einlesen(string pfad);
+        bool Updatedatensatz(List<Bewerbung> list,string pfad);
 
     }
 }

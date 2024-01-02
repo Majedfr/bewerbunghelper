@@ -21,7 +21,7 @@ namespace bewerbunghelper
         {
             if (ergebnis==false)
             {
-                Pase.speichen(newbewerbung, pfad);
+                Pase.Speichen(newbewerbung, pfad);
                 return true;
             }
             return false;
@@ -29,7 +29,7 @@ namespace bewerbunghelper
 
         public bool ExsistentPrufen(Bewerbung mynew)
         {
-            List<Bewerbung> p = Pase.lesen(pfad);
+            List<Bewerbung> p = Pase.Einlesen(pfad);
             if (p.Count > 0)
             {
                 var count = (from bewerbung in p where (bewerbung.Firma == mynew.Firma) select bewerbung).Count();
@@ -50,9 +50,9 @@ namespace bewerbunghelper
             }*/
         }
 
-        public List<Bewerbung> bewerbungAnzeigen(string status)
+        public List<Bewerbung> AnzeigenBewerbungen(string status)
         {
-            List<Bewerbung> ergebnis= Pase.lesen(pfad);
+            List<Bewerbung> ergebnis= Pase.Einlesen(pfad);
 
             if (status == "Alle")
             {
@@ -70,14 +70,14 @@ namespace bewerbunghelper
             }
         }
 
-        public bool aktualieseierendaten(List<Bewerbung> list)
+        public bool AktualiesernDaten(List<Bewerbung> list)
         {
-            bool ergebnis= Pase.update(list,pfad); 
+            bool ergebnis= Pase.Updatedatensatz(list,pfad); 
             if(ergebnis==true)return true;
             else return false;
         }
 
-        public bool emailsenden(string empfanger, string ansprechpartner, string pfadanhang)
+        public bool SendenEmail(string empfanger, string ansprechpartner, string pfadanhang)
         {
            
            

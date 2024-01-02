@@ -13,7 +13,7 @@ namespace bewerbunghelper
     public partial class Anzeigen : Form
     {
         private readonly Ilogik controll;
-        List<Bewerbung> ergebnisse = new List<Bewerbung>();
+        List<Bewerbung> Listergebniss = new List<Bewerbung>();
         public Anzeigen(Ilogik Controller)
         {
             InitializeComponent();
@@ -27,21 +27,21 @@ namespace bewerbunghelper
             if (rbn_alles.Checked)
             {
                 string status = "Alle";
-                ergebnisse = controll.bewerbungAnzeigen(status);
-                dataGridView1.DataSource = ergebnisse;
+                Listergebniss = controll.AnzeigenBewerbungen(status);
+                dataGridView1.DataSource = Listergebniss;
 
             }
             else if (rbn_absage.Checked)
             {
                 string status = "Abgesagt";
-                ergebnisse = controll.bewerbungAnzeigen(status);
-                dataGridView1.DataSource = ergebnisse;
+                Listergebniss = controll.AnzeigenBewerbungen(status);
+                dataGridView1.DataSource = Listergebniss;
             }
             else
             {
                 string status = "bewerbt";
-                ergebnisse = controll.bewerbungAnzeigen(status);
-                dataGridView1.DataSource = ergebnisse;
+                Listergebniss = controll.AnzeigenBewerbungen(status);
+                dataGridView1.DataSource = Listergebniss;
             }
         }
 
@@ -51,13 +51,14 @@ namespace bewerbunghelper
 
         private void btn_speichen_Click(object sender, EventArgs e)
         {
-            if (ergebnisse == null)
+            if (Listergebniss != null)
             {
-                bool bewertung = controll.aktualieseierendaten(ergebnisse);
+                bool bewertung = controll.AktualiesernDaten(Listergebniss);
                 if (bewertung)
                 {
                     MessageBox.Show("erfolgreich gespeichert");
                 }
+                else MessageBox.Show("sie haben nicht geändert");
             }
             else MessageBox.Show("sie haben nicht ausgewählt");
         }
@@ -65,7 +66,7 @@ namespace bewerbunghelper
         private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             int rowindex = e.RowIndex; int colindex = e.ColumnIndex;
-            ergebnisse[rowindex].Status = dataGridView1.Rows[rowindex].Cells[colindex].ToString();
+            Listergebniss[rowindex].Status = dataGridView1.Rows[rowindex].Cells[colindex].ToString();
         }
 
         private void btn_schicken_Click(object sender, EventArgs e)
@@ -89,7 +90,7 @@ namespace bewerbunghelper
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     string anhang = openFileDialog.FileName;
-                    bool ergebnis = controll.emailsenden(email, anprechpartner, anhang);
+                    bool ergebnis = controll.SendenEmail(email, anprechpartner, anhang);
                     if (ergebnis)
                     {
                         MessageBox.Show("erfolgreich gesendet");
